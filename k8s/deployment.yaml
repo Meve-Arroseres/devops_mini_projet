@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nest
-        image: app/nest-app:V1
+        image: nest-app:v1
         ports:
         - containerPort: 3000
         env:
