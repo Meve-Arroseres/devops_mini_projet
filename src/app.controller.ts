@@ -1,12 +1,21 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, InternalServerErrorException } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+
+  @Get('health')
+  health() {
+    return { status: 'ok' };
+  }
+
+  @Get('error')
+  error() {
+    throw new InternalServerErrorException('Fake error');
+  }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+  root() {
+    return { message: 'API running' };
+}
+
 }
