@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nest-deployment
+  namespace: dev
 spec:
   replicas: 2
   selector:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nest
-        image: nest-app:v1
+        image: nest-app:v2
         ports:
         - containerPort: 3000
         env:
