@@ -5,7 +5,9 @@ export class AppController {
 
   @Get('health')
   health() {
-    return { status: 'ok' };
+    return { status: 'ok',
+      apiKeyLoaded: !!process.env.API_KEY,
+     };
   }
 
   @Get('error')
