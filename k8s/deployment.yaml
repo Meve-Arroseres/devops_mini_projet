@@ -18,5 +18,9 @@ spec:
         ports:
         - containerPort: 3000
         env:
-        - name: NODE_ENV
-          value: "production"
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: nest-secret
+              key: api_key
+        
